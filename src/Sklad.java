@@ -16,7 +16,7 @@ class Izziv2 {
 
 class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
     private static final int DEFAULT_CAPACITY = 64;
-    private Object[] polje = new Object[DEFAULT_CAPACITY];
+    private T[] polje = (T[]) (new Object[DEFAULT_CAPACITY]);
     private int front = -1;
     private int back = -1;
 
@@ -83,7 +83,7 @@ class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
 
     @Override
     public T top() throws CollectionException {
-        return (T) polje[front];
+        return  polje[front];
     }
 
     @Override
@@ -110,7 +110,7 @@ class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
     @Override
     public T back() throws CollectionException {
         if (isEmpty()) throw new CollectionException(Collection.ERR_MSG_EMPTY);
-        return (T) polje[back];
+        return  polje[back];
     }
 
     @Override
@@ -146,7 +146,7 @@ class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
         if (isEmpty()) throw new CollectionException(Collection.ERR_MSG_EMPTY);
         if (i > front) throw new CollectionException("Invalid index");
         if (i < back) throw new CollectionException("Invalid index");
-        return (T) polje[i];
+        return  polje[i];
     }
 
 
