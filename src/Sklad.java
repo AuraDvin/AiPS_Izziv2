@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 class Izziv2 {
     public static void main(String[] args) throws CollectionException{
-        ArrayDeque<String> stack = new ArrayDeque<>();
+        Stack<String> stack = new ArrayDeque<>();
+        Deque<String> deque = new ArrayDeque<>();
+        Sequence<String> sequence = new ArrayDeque<>();
+
         Scanner sc = new Scanner(System.in);
         String[] line = sc.nextLine().split(" ");
         for (String s : line) {
-            stack.enqueueFront(s);
+            // Show it working
         }
-        System.out.println(stack);
     }
 }
 
