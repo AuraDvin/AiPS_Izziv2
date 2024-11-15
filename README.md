@@ -1,3 +1,13 @@
+## TODO:
+- [x] Stack stuff
+- [ ] Deque stuff
+- [ ] Sequence stuff
+- [ ] fix size (actually count elements in the array)
+- [ ] fix toString (use front and back indexes)
+- [ ] fix get method (logical to physical index)
+- [ ] Remove all warnings 
+
+
 # Navodila
 
 Pri tem izzivu se boste pozabavali z osnovnimi podatkovnimi strukturami. S (statičnim) poljem boste implementirali 3 APT-je: 
@@ -16,7 +26,7 @@ S pomočjo (krožnega) polja implementiraj razred ArrayDeque<T>, ki implementira
 ```java
 class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
     private static final int DEFAULT_CAPACITY = 64;
-    // Tukaj napiši svojo kodo.
+    // code
 }
 ```
 a) Implementiraj vse potrebne metode.
