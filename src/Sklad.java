@@ -1,9 +1,8 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 class Izziv2 {
     public static void main(String[] args) throws CollectionException{
-        ArrayDeque<String> stack = new ArrayDeque<String>();
+        ArrayDeque<String> stack = new ArrayDeque<>();
         Scanner sc = new Scanner(System.in);
         String[] line = sc.nextLine().split(" ");
         for (String s : line) {
@@ -14,12 +13,14 @@ class Izziv2 {
 }
 
 
+/** @noinspection ALL*/
 class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
     private static final int DEFAULT_CAPACITY = 64;
+    @SuppressWarnings({"FieldMayBeFinal", "UncheckedCast"})
     private T[] polje = (T[]) (new Object[DEFAULT_CAPACITY]);
     private int front = -1;
     private int back = -1;
-
+    @SuppressWarnings("NeverUsed")
     public final static String[] keyWords = new String[]{
             "echo",
             "print",
@@ -48,7 +49,7 @@ class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
     };
 
     public String toString() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append("[ ");
         for(Object a : polje){
             if (a == null) continue;
@@ -83,7 +84,8 @@ class ArrayDeque<T> implements Deque<T>, Stack<T>, Sequence<T> {
 
     @Override
     public T top() throws CollectionException {
-        return  polje[front];
+        if (isEmpty()) throw new CollectionException(Collection.ERR_MSG_EMPTY);
+        return polje[front];
     }
 
     @Override
@@ -158,6 +160,7 @@ class CollectionException extends Exception {
     }
 }
 
+/** @noinspection ALL*/
 interface Collection {
     static final String ERR_MSG_EMPTY = "Collection is empty.";
     static final String ERR_MSG_FULL = "Collection is full.";
@@ -171,6 +174,7 @@ interface Collection {
     String toString();
 }
 
+/** @noinspection ALL*/
 interface Stack<T> extends Collection {
     T top() throws CollectionException;
 
@@ -179,6 +183,7 @@ interface Stack<T> extends Collection {
     T pop() throws CollectionException;
 }
 
+/** @noinspection ALL*/
 interface Deque<T> extends Collection {
     T front() throws CollectionException;
 
@@ -192,7 +197,7 @@ interface Deque<T> extends Collection {
 
     T dequeueBack() throws CollectionException;
 }
-
+/** @noinspection ALL*/
 interface Sequence<T> extends Collection {
     static final String ERR_MSG_INDEX = "Wrong index in sequence.";
 
